@@ -10,7 +10,6 @@ router.get("/get-shops", (req, res) => {
       console.log(err);
       return res.status(400).send(err.message);
     }
-    console.log(result);
     return res.status(200).send(result);
   });
 });
@@ -23,7 +22,6 @@ router.post("/get-my-shops", (req, res) => {
       console.log(err);
       return res.status(400).send(err.message);
     }
-    console.log(result);
     return res.status(200).send(result);
   });
 });

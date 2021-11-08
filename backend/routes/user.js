@@ -24,6 +24,9 @@ router.post("/login", (req, res) => {
   const { email, password } = req.body;
   var query = `SELECT password, user_ID, role from user WHERE email = "${email}";`;
   db.query(query, [1], (err, result) => {
+    if (JSON.parse(JSON.stringify(result))[0] === undefined) {
+      return res.status(400).send(err);
+    }
     fpassword = JSON.parse(JSON.stringify(result))[0].password;
     fuser_id = JSON.parse(JSON.stringify(result))[0].user_ID;
     frole = JSON.parse(JSON.stringify(result))[0].role;

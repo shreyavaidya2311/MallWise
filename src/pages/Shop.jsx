@@ -12,6 +12,7 @@ import {
   Button,
   TextField,
   CircularProgress,
+  Badge,
 } from "@material-ui/core";
 import logo from "../assets/logo-dark.png";
 import {
@@ -21,6 +22,7 @@ import {
 } from "@material-ui/icons";
 import "../App.css";
 import axios from "axios";
+import Cart from "../components/Cart";
 
 const Shop = (props) => {
   const [data, setData] = useState([]);
@@ -65,6 +67,27 @@ const Shop = (props) => {
     }
     setQuantity(tempquantity);
   };
+  const addToCart = (item, index) => {
+    let temp = [...props.products];
+    let temp_id = [];
+    temp.map((i) => temp_id.push(i.id));
+    if (temp_id.includes(item.product_ID)) {
+      let ind = temp_id.findIndex((id) => id === item.product_ID);
+      temp[ind].quantity = quantity[index];
+      temp[ind].rquantity = item.quantity - quantity[index];
+    } else {
+      let temp_product = {
+        id: item.product_ID,
+        name: item.name,
+        price: item.price,
+        image: item.image,
+        quantity: quantity[index],
+        rquantity: item.quantity - quantity[index],
+      };
+      temp.push(temp_product);
+    }
+    props.setProducts(temp);
+  };
   return (
     <>
       {loading ? (
@@ -78,20 +101,36 @@ const Shop = (props) => {
                   <img src={logo} alt="logo" />
                 </Grid>
                 <Grid item>
-                  <IconButton>
-                    <ShoppingCart color="secondary" />
+                  <IconButton onClick={() => props.setOpenCart(true)}>
+                    {props.products.length ? (
+                      <Badge badgeContent={props.products.length} color="error">
+                        <ShoppingCart color="secondary" />
+                      </Badge>
+                    ) : (
+                      <ShoppingCart color="secondary" />
+                    )}
                   </IconButton>
                 </Grid>
               </Grid>
             </Toolbar>
           </AppBar>
-          <Grid container style={{ marginTop: "5em" }} justifyContent="center">
+          <center>
+            <Button
+              style={{ marginTop: "6em" }}
+              variant="contained"
+              onClick={() => props.setClick(false)}
+              color="secondary"
+            >
+              GO BACK
+            </Button>
+          </center>
+          <Grid container style={{ marginTop: "1em" }} justifyContent="center">
             {data.map((item, index) => (
               <Card style={{ width: "20em", margin: "1em" }}>
                 <CardMedia
                   component="img"
                   image={item.image}
-                  style={{ width: "20em" }}
+                  style={{ width: "20em", height: "20em" }}
                 />
                 <center>
                   <CardContent>
@@ -131,6 +170,7 @@ const Shop = (props) => {
                     variant="contained"
                     color="secondary"
                     style={{ margin: "1em", width: "13em" }}
+                    onClick={() => addToCart(item, index)}
                   >
                     Add to Cart
                   </Button>
@@ -140,6 +180,11 @@ const Shop = (props) => {
           </Grid>
         </div>
       )}
+      <Cart
+        products={props.products}
+        openCart={props.openCart}
+        setCloseCart={props.setCloseCart}
+      />
     </>
   );
 };

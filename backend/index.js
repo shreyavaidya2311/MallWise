@@ -9,7 +9,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.get("/", (req, res) => res.send("Hello World!"));
-const routes = ["user", "shop", "product"];
+const routes = ["user", "shop", "product", "cart"];
 
 createTables();
 

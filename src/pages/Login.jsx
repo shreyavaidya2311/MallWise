@@ -32,7 +32,7 @@ const Login = (props) => {
   const classes = useStyles();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [alignment, setAlignment] = React.useState("customer");
+  const [alignment, setAlignment] = useState("customer");
   const handleChange = (event, newAlignment) => {
     setAlignment(newAlignment);
   };
@@ -49,9 +49,10 @@ const Login = (props) => {
         .post("http://localhost:5000/user/login", body)
         .then((res) => {
           localStorage.setItem("user_ID", res.data.user_ID);
-          console.log(alignment);
           if (alignment === "customer") {
+            let cart_ID = Math.floor(Math.random() * 500) + 1;
             localStorage.setItem("customer_ID", res.data.id);
+            localStorage.setItem("cart_ID", cart_ID);
             window.location.replace("http://localhost:3000/cdashboard");
           } else {
             localStorage.setItem("shopowner_ID", res.data.id);

@@ -7,16 +7,22 @@ import {
   Typography,
   CircularProgress,
   Button,
+  Badge,
 } from "@material-ui/core";
 import logo from "../assets/logo-dark.png";
 import { ShoppingCart } from "@material-ui/icons";
-import { Link } from "react-router-dom";
 import "../App.css";
 import axios from "axios";
+import Shop from "./Shop";
+import Cart from "../components/Cart";
 
 const CustomerDashboard = (props) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [products, setProducts] = useState([]);
+  const [click, setClick] = useState(false);
+  const [openCart, setOpenCart] = useState(false);
+
   useEffect(() => {
     axios
       .get("http://localhost:5000/shop/get-shops")
@@ -29,7 +35,25 @@ const CustomerDashboard = (props) => {
 
   const setShop = (id) => {
     localStorage.setItem("cshop_ID", id);
+    setClick(true);
   };
+
+  const handleCloseCart = () => {
+    setOpenCart(false);
+  };
+
+  if (click) {
+    return (
+      <Shop
+        products={products}
+        setProducts={setProducts}
+        setClick={setClick}
+        openCart={openCart}
+        setOpenCart={setOpenCart}
+        setCloseCart={handleCloseCart}
+      />
+    );
+  }
   return (
     <>
       {loading ? (
@@ -43,8 +67,14 @@ const CustomerDashboard = (props) => {
                   <img src={logo} alt="logo" />
                 </Grid>
                 <Grid item>
-                  <IconButton>
-                    <ShoppingCart color="secondary" />
+                  <IconButton onClick={() => setOpenCart(true)}>
+                    {products.length ? (
+                      <Badge badgeContent={products.length} color="error">
+                        <ShoppingCart color="secondary" />
+                      </Badge>
+                    ) : (
+                      <ShoppingCart color="secondary" />
+                    )}
                   </IconButton>
                 </Grid>
               </Grid>
@@ -63,7 +93,11 @@ const CustomerDashboard = (props) => {
                         <img
                           src={item.image}
                           alt="img"
-                          style={{ borderRadius: "5%" }}
+                          style={{
+                            borderRadius: "5%",
+                            width: "32em",
+                            height: "20em",
+                          }}
                         />
                         <div className="social-links">
                           <ul>
@@ -79,21 +113,13 @@ const CustomerDashboard = (props) => {
                             </li>
                             <br />
                             <li>
-                              <Link
-                                to="/shop"
-                                style={{
-                                  color: "white",
-                                  textDecoration: "none",
-                                }}
+                              <Button
+                                onClick={() => setShop(item.shop_ID)}
+                                color="secondary"
+                                variant="contained"
                               >
-                                <Button
-                                  onClick={() => setShop(item.shop_ID)}
-                                  color="secondary"
-                                  variant="contained"
-                                >
-                                  Visit Shop {">>"}
-                                </Button>
-                              </Link>
+                                Visit Shop {">>"}
+                              </Button>
                             </li>
                           </ul>
                         </div>
@@ -104,6 +130,11 @@ const CustomerDashboard = (props) => {
               </Grid>
             ))}
           </Grid>
+          <Cart
+            products={products}
+            openCart={openCart}
+            setCloseCart={handleCloseCart}
+          />
         </div>
       )}
     </>

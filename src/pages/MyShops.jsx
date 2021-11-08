@@ -2,14 +2,12 @@ import React, { useEffect, useState } from "react";
 import {
   AppBar,
   Toolbar,
-  IconButton,
   Grid,
   Typography,
   CircularProgress,
   Button,
 } from "@material-ui/core";
 import logo from "../assets/logo-dark.png";
-import { ShoppingCart } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import "../App.css";
 import axios from "axios";
@@ -20,7 +18,6 @@ const MyShops = (props) => {
   useEffect(() => {
     let id = localStorage.getItem("shopowner_ID");
     var body = { id: id };
-    console.log(id);
     axios
       .post("http://localhost:5000/shop/get-my-shops", body)
       .then((res) => {
@@ -44,15 +41,10 @@ const MyShops = (props) => {
                 <Grid item>
                   <img src={logo} alt="logo" />
                 </Grid>
-                <Grid item>
-                  <IconButton>
-                    <ShoppingCart color="secondary" />
-                  </IconButton>
-                </Grid>
               </Grid>
             </Toolbar>
           </AppBar>
-          <Grid container style={{ marginTop: "2em" }} justifyContent="center">
+          <Grid container justifyContent="center">
             {data.map((item) => (
               <Grid item>
                 <div
@@ -65,7 +57,11 @@ const MyShops = (props) => {
                         <img
                           src={item.image}
                           alt="img"
-                          style={{ borderRadius: "5%" }}
+                          style={{
+                            borderRadius: "5%",
+                            width: "32em",
+                            height: "20em",
+                          }}
                         />
                         <div className="social-links">
                           <ul>

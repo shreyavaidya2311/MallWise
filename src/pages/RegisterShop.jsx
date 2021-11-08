@@ -10,10 +10,8 @@ import {
   Button,
   AppBar,
   Toolbar,
-  Input,
-  IconButton,
 } from "@material-ui/core";
-import { CheckBox, Camera } from "@material-ui/icons";
+import { CheckBox } from "@material-ui/icons";
 import logo from "../assets/logo-dark.png";
 import axios from "axios";
 
@@ -109,24 +107,6 @@ const RegisterShop = () => {
                 </Select>
                 <br />
                 <br />
-                {/* <center>
-                  <label htmlFor="contained-button-file">
-                    <Typography>Shop Image</Typography>
-                    <Input
-                      accept="image/*"
-                      id="contained-button-file"
-                      multiple
-                      type="file"
-                      onChange={(e) => {
-                        setLink(URL.createObjectURL(e.target.files[0]));
-                      }}
-                    />
-                    <IconButton component="span">
-                      <Camera color="secondary" />
-                    </IconButton>
-                  </label> */}
-                {/* {link !== "" ? <img src={link} alt="img" /> : null}
-                </center> */}
                 <TextField
                   name="shopImage"
                   variant="outlined"
