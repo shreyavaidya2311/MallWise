@@ -14,6 +14,7 @@ import {
 import { CheckBox } from "@material-ui/icons";
 import logo from "../assets/logo-dark.png";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const RegisterShop = () => {
   const [name, setName] = useState("");
@@ -34,10 +35,14 @@ const RegisterShop = () => {
       axios
         .post("http://localhost:5000/shop/register-shop", body)
         .then((res) => {
-          alert("Registered");
+          window.location.replace("http://localhost:3000/myshops");
         })
         .catch((e) => console.log(e));
     }
+  };
+  const handleLogout = () => {
+    localStorage.clear();
+    window.location.replace("http://localhost:3000/");
   };
   return (
     <>
@@ -46,6 +51,40 @@ const RegisterShop = () => {
           <Grid container justifyContent="space-between">
             <Grid item>
               <img src={logo} alt="logo" />
+            </Grid>
+            <Grid item>
+              <Grid container justifyContent="space-between" spacing={4}>
+                <Grid item>
+                  <Link
+                    to="/myshops"
+                    style={{ textDecoration: "none", color: "white" }}
+                  >
+                    <Button color="secondary" size="large">
+                      <b>My Shops</b>
+                    </Button>
+                  </Link>
+                </Grid>
+                <Grid item>
+                  <Link
+                    to="/sregister"
+                    style={{ textDecoration: "none", color: "white" }}
+                  >
+                    <Button color="secondary" size="large">
+                      <b>Register Shop</b>
+                    </Button>
+                  </Link>
+                </Grid>
+                <Grid item>
+                  <Button
+                    color="secondary"
+                    size="large"
+                    onClick={handleLogout}
+                    variant="outlined"
+                  >
+                    <b>LOGOUT</b>
+                  </Button>
+                </Grid>
+              </Grid>
             </Grid>
           </Grid>
         </Toolbar>

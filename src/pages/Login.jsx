@@ -56,7 +56,7 @@ const Login = (props) => {
             window.location.replace("http://localhost:3000/cdashboard");
           } else {
             localStorage.setItem("shopowner_ID", res.data.id);
-            window.location.replace("http://localhost:3000/sregister");
+            window.location.replace("http://localhost:3000/myshops");
           }
         })
         .catch((e) => alert("Incorrect username or password!"));

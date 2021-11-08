@@ -29,6 +29,10 @@ const MyShops = (props) => {
   const handleClick = (id) => {
     localStorage.setItem("shop_ID", id);
   };
+  const handleLogout = () => {
+    localStorage.clear();
+    window.location.replace("http://localhost:3000/");
+  };
   return (
     <>
       {loading ? (
@@ -40,6 +44,40 @@ const MyShops = (props) => {
               <Grid container justifyContent="space-between">
                 <Grid item>
                   <img src={logo} alt="logo" />
+                </Grid>
+                <Grid item>
+                  <Grid container justifyContent="space-between" spacing={4}>
+                    <Grid item>
+                      <Link
+                        to="/myshops"
+                        style={{ textDecoration: "none", color: "white" }}
+                      >
+                        <Button color="secondary" size="large">
+                          <b>My Shops</b>
+                        </Button>
+                      </Link>
+                    </Grid>
+                    <Grid item>
+                      <Link
+                        to="/sregister"
+                        style={{ textDecoration: "none", color: "white" }}
+                      >
+                        <Button color="secondary" size="large">
+                          <b>Register Shop</b>
+                        </Button>
+                      </Link>
+                    </Grid>
+                    <Grid item>
+                      <Button
+                        color="secondary"
+                        size="large"
+                        onClick={handleLogout}
+                        variant="outlined"
+                      >
+                        <b>LOGOUT</b>
+                      </Button>
+                    </Grid>
+                  </Grid>
                 </Grid>
               </Grid>
             </Toolbar>

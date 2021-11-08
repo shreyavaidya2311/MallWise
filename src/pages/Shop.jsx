@@ -88,6 +88,10 @@ const Shop = (props) => {
     }
     props.setProducts(temp);
   };
+  const handleLogout = () => {
+    localStorage.clear();
+    window.location.replace("http://localhost:3000/");
+  };
   return (
     <>
       {loading ? (
@@ -101,15 +105,32 @@ const Shop = (props) => {
                   <img src={logo} alt="logo" />
                 </Grid>
                 <Grid item>
-                  <IconButton onClick={() => props.setOpenCart(true)}>
-                    {props.products.length ? (
-                      <Badge badgeContent={props.products.length} color="error">
-                        <ShoppingCart color="secondary" />
-                      </Badge>
-                    ) : (
-                      <ShoppingCart color="secondary" />
-                    )}
-                  </IconButton>
+                  <Grid container justifyContent="space-between" spacing={4}>
+                    <Grid item>
+                      <IconButton onClick={() => props.setOpenCart(true)}>
+                        {props.products.length ? (
+                          <Badge
+                            badgeContent={props.products.length}
+                            color="error"
+                          >
+                            <ShoppingCart color="secondary" />
+                          </Badge>
+                        ) : (
+                          <ShoppingCart color="secondary" />
+                        )}
+                      </IconButton>
+                    </Grid>
+                    <Grid item>
+                      <Button
+                        color="secondary"
+                        size="large"
+                        variant="outlined"
+                        onClick={handleLogout}
+                      >
+                        <b>LOGOUT</b>
+                      </Button>
+                    </Grid>
+                  </Grid>
                 </Grid>
               </Grid>
             </Toolbar>

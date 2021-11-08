@@ -43,7 +43,7 @@ const EditProduct = (props) => {
       axios
         .post("http://localhost:5000/product/update-product", body)
         .then((res) => {
-          alert("Updated");
+          window.location.reload();
         })
         .catch((e) => console.log(e));
     }

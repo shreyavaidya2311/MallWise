@@ -15,6 +15,7 @@ import "../App.css";
 import axios from "axios";
 import Shop from "./Shop";
 import Cart from "../components/Cart";
+import localStorage from "local-storage";
 
 const CustomerDashboard = (props) => {
   const [data, setData] = useState([]);
@@ -41,7 +42,10 @@ const CustomerDashboard = (props) => {
   const handleCloseCart = () => {
     setOpenCart(false);
   };
-
+  const handleLogout = () => {
+    localStorage.clear();
+    window.location.replace("http://localhost:3000/");
+  };
   if (click) {
     return (
       <Shop
@@ -67,15 +71,29 @@ const CustomerDashboard = (props) => {
                   <img src={logo} alt="logo" />
                 </Grid>
                 <Grid item>
-                  <IconButton onClick={() => setOpenCart(true)}>
-                    {products.length ? (
-                      <Badge badgeContent={products.length} color="error">
-                        <ShoppingCart color="secondary" />
-                      </Badge>
-                    ) : (
-                      <ShoppingCart color="secondary" />
-                    )}
-                  </IconButton>
+                  <Grid container justifyContent="space-between" spacing={4}>
+                    <Grid item>
+                      <IconButton onClick={() => setOpenCart(true)}>
+                        {products.length ? (
+                          <Badge badgeContent={products.length} color="error">
+                            <ShoppingCart color="secondary" />
+                          </Badge>
+                        ) : (
+                          <ShoppingCart color="secondary" />
+                        )}
+                      </IconButton>
+                    </Grid>
+                    <Grid item>
+                      <Button
+                        color="secondary"
+                        size="large"
+                        variant="outlined"
+                        onClick={handleLogout}
+                      >
+                        <b>LOGOUT</b>
+                      </Button>
+                    </Grid>
+                  </Grid>
                 </Grid>
               </Grid>
             </Toolbar>

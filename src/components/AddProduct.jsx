@@ -42,7 +42,7 @@ const AddProduct = (props) => {
       axios
         .post("http://localhost:5000/product/add-product", body)
         .then((res) => {
-          alert("Added");
+          window.location.reload();
         })
         .catch((e) => console.log(e));
     }
