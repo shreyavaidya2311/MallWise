@@ -26,6 +26,18 @@ router.post("/get-my-shops", (req, res) => {
   });
 });
 
+router.post("/delete-shop", (req, res) => {
+  const { id } = req.body;
+  var query = `DELETE from shop where shop_ID = ${id}`;
+  db.query(query, [1], (err, result) => {
+    if (err) {
+      console.log(err);
+      return res.status(400).send(err.message);
+    }
+    return res.status(200).send(result);
+  });
+});
+
 router.post("/register-shop", (req, res) => {
   const { name, category, shopowner_id, shop_img } = req.body;
   var date = new Date();

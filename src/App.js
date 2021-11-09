@@ -8,6 +8,7 @@ import CustomerDashboard from "./pages/CustomerDashboard";
 import Inventory from "./pages/Inventory";
 import ShopRegister from "./pages/RegisterShop";
 import MyShops from "./pages/MyShops";
+import PreviouslyPurchased from "./pages/PreviouslyPurchased";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route exact path="/myshops" component={MyShops} />
             <Route exact path="/inventory" component={Inventory} />
             <Route exact path="/sregister" component={ShopRegister} />
+            <Route exact path="/purchased" component={PreviouslyPurchased} />
           </div>
         </Switch>
       </Router>

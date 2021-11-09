@@ -36,7 +36,7 @@ const Cart = (props) => {
     axios
       .post("http://localhost:5000/cart/checkout", body)
       .then((res) => {
-        alert("Successful");
+        window.location.replace("http://localhost:3000/purchased");
       })
       .catch((e) => console.log(e));
   };

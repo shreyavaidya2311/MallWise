@@ -16,6 +16,7 @@ import axios from "axios";
 import Shop from "./Shop";
 import Cart from "../components/Cart";
 import localStorage from "local-storage";
+import { Link } from "react-router-dom";
 
 const CustomerDashboard = (props) => {
   const [data, setData] = useState([]);
@@ -23,6 +24,7 @@ const CustomerDashboard = (props) => {
   const [products, setProducts] = useState([]);
   const [click, setClick] = useState(false);
   const [openCart, setOpenCart] = useState(false);
+  const [shopID, setShopID] = useState();
 
   useEffect(() => {
     axios
@@ -35,7 +37,7 @@ const CustomerDashboard = (props) => {
   }, []);
 
   const setShop = (id) => {
-    localStorage.setItem("cshop_ID", id);
+    setShopID(id);
     setClick(true);
   };
 
@@ -55,6 +57,7 @@ const CustomerDashboard = (props) => {
         openCart={openCart}
         setOpenCart={setOpenCart}
         setCloseCart={handleCloseCart}
+        shopID={shopID}
       />
     );
   }
@@ -72,6 +75,16 @@ const CustomerDashboard = (props) => {
                 </Grid>
                 <Grid item>
                   <Grid container justifyContent="space-between" spacing={4}>
+                    <Grid item>
+                      <Link
+                        to="/purchased"
+                        style={{ textDecoration: "none", color: "white" }}
+                      >
+                        <Button size="large" color="secondary">
+                          Purchased Products
+                        </Button>
+                      </Link>
+                    </Grid>
                     <Grid item>
                       <IconButton onClick={() => setOpenCart(true)}>
                         {products.length ? (

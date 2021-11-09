@@ -82,8 +82,9 @@ var productCartTable = `CREATE TABLE IF NOT EXISTS product_cart
 (
     product_ID int,
     cart_ID int,
+    quantity int,
     PRIMARY KEY(product_ID, cart_ID),
-    FOREIGN KEY(product_ID) REFERENCES product(product_ID),
+    FOREIGN KEY(product_ID) REFERENCES product(product_ID) ON DELETE CASCADE,
     FOREIGN KEY(cart_ID) REFERENCES cart(cart_ID)
 );`;
 
@@ -92,7 +93,7 @@ var buysTable = `CREATE TABLE IF NOT EXISTS buys
     customer_ID int,
     product_ID int,
     PRIMARY KEY(customer_ID, product_ID),
-    FOREIGN KEY(product_ID) REFERENCES product(product_ID),
+    FOREIGN KEY(product_ID) REFERENCES product(product_ID) ON DELETE CASCADE,
     FOREIGN KEY(customer_ID) REFERENCES customer(customer_ID)
 );`;
 
@@ -101,8 +102,8 @@ var comprisesTable = `CREATE TABLE IF NOT EXISTS comprises
     shop_ID int,
     product_ID int,
     PRIMARY KEY(shop_ID, product_ID),
-    FOREIGN KEY(shop_ID) REFERENCES shop(shop_ID),
-    FOREIGN KEY(product_ID) REFERENCES product(product_ID)
+    FOREIGN KEY(shop_ID) REFERENCES shop(shop_ID) ON DELETE CASCADE,
+    FOREIGN KEY(product_ID) REFERENCES product(product_ID) ON DELETE CASCADE
 );`;
 
 var tables = [

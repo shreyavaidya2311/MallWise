@@ -29,6 +29,15 @@ const MyShops = (props) => {
   const handleClick = (id) => {
     localStorage.setItem("shop_ID", id);
   };
+  const handleDelete = (id) => {
+    var body = { id: id };
+    axios
+      .post("http://localhost:5000/shop/delete-shop", body)
+      .then((res) => {
+        window.location.reload();
+      })
+      .catch((e) => console.log(e));
+  };
   const handleLogout = () => {
     localStorage.clear();
     window.location.replace("http://localhost:3000/");
@@ -130,6 +139,16 @@ const MyShops = (props) => {
                                   Visit Inventory {">>"}
                                 </Button>
                               </Link>
+                            </li>
+                            <li>
+                              <Button
+                                style={{ marginLeft: "0.5em" }}
+                                variant="contained"
+                                color="primary"
+                                onClick={() => handleDelete(item.shop_ID)}
+                              >
+                                Delete Shop
+                              </Button>
                             </li>
                           </ul>
                         </div>

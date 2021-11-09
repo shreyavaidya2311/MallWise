@@ -42,4 +42,16 @@ router.post("/update-product", (req, res) => {
   });
 });
 
+router.post("/delete-product", (req, res) => {
+  const { id } = req.body;
+  var query = `DELETE from product where product_ID = ${id}`;
+  db.query(query, [1], (err, result) => {
+    if (err) {
+      console.log(err);
+      return res.status(400).send(err.message);
+    }
+    return res.status(200).send(result);
+  });
+});
+
 module.exports = router;

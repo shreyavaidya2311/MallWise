@@ -24,9 +24,21 @@ router.post("/checkout", (req, res) => {
     query += `INSERT INTO product_cart (product_ID, cart_ID, quantity) VALUES (${product.id}, ${cart_ID}, ${product.quantity});`;
     i += 1;
     arr.push();
-    query += `UPDATE product SET quantity = ${product.rquantity} WHERE product_ID = ${product.id}`;
+    query += `UPDATE product SET quantity = ${product.rquantity} WHERE product_ID = ${product.id};`;
   });
   db.query(query, arr, (err, result) => {
+    if (err) {
+      console.log(err);
+      return res.status(400).send(err.message);
+    }
+    return res.status(200).send(result);
+  });
+});
+
+router.post("/get-purchased", (req, res) => {
+  const { id } = req.body;
+  var query = `SELECT * from product where product_ID IN (SELECT product_ID from buys WHERE customer_ID = ${id});`;
+  db.query(query, [1], (err, result) => {
     if (err) {
       console.log(err);
       return res.status(400).send(err.message);

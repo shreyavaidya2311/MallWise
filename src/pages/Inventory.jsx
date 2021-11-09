@@ -84,6 +84,18 @@ const Inventory = () => {
 
   const options = {
     filterType: "checkbox",
+    onRowsDelete: (rowsDeleted) => {
+      const id = rowsDeleted.data.map((d) => data[d.dataIndex].product_ID);
+      var body = {
+        id: id[0],
+      };
+      axios
+        .post("http://localhost:5000/product/delete-product", body)
+        .then((res) => {
+          window.location.reload();
+        })
+        .catch((e) => console.log(e));
+    },
   };
   return (
     <>

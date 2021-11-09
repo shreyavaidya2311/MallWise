@@ -23,13 +23,14 @@ import {
 import "../App.css";
 import axios from "axios";
 import Cart from "../components/Cart";
+import { Link } from "react-router-dom";
 
 const Shop = (props) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    let shop_id = localStorage.getItem("cshop_ID");
+    let shop_id = props.shopID;
     var body = { shop_id: shop_id };
     axios
       .post("http://localhost:5000/product/get-products", body)
@@ -38,7 +39,9 @@ const Shop = (props) => {
         setLoading(false);
       })
       .catch((e) => console.log(e));
+    //eslint-disable-next-line
   }, []);
+
   const [quantity, setQuantity] = useState([]);
   const handleAdd = (index) => {
     let tempquantity = [...quantity];
@@ -106,6 +109,16 @@ const Shop = (props) => {
                 </Grid>
                 <Grid item>
                   <Grid container justifyContent="space-between" spacing={4}>
+                    <Grid item>
+                      <Link
+                        to="/purchased"
+                        style={{ textDecoration: "none", color: "white" }}
+                      >
+                        <Button size="large" color="secondary">
+                          Purchased Products
+                        </Button>
+                      </Link>
+                    </Grid>
                     <Grid item>
                       <IconButton onClick={() => props.setOpenCart(true)}>
                         {props.products.length ? (
