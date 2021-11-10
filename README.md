@@ -37,10 +37,10 @@
 
 ## Screenshots
 
-<img width="750px" src="https://user-images.githubusercontent.com/56782318/141064767-7c70a146-e815-4354-bdbc-6b1de86d72f6.png" alt="img"/>
-<img width="750px" src="https://user-images.githubusercontent.com/56782318/141064818-026e9d49-1a78-43d2-874d-d66ae354ff0f.png" alt="img"/>
-<img width="750px" src="https://user-images.githubusercontent.com/56782318/141064884-6fc81b04-bd6e-4cf1-a554-229dd16fb4eb.png" alt="img"/>
-<img width="750px" src="https://user-images.githubusercontent.com/56782318/141064943-dd75207f-8dd0-4d46-b0e2-2c22dc0ad33f.png" alt="img"/>
+<img width="750px" src="https://user-images.githubusercontent.com/56782318/141068146-ce1f9c56-4c04-458e-9de2-d08b391e799a.png" alt="img"/>
+<img width="750px" src="https://user-images.githubusercontent.com/56782318/141068273-0460e0ba-ab98-495d-b598-14ccca8da018.png" alt="img"/>
+<img width="750px" src="https://user-images.githubusercontent.com/56782318/141068341-c1ec4698-4780-4d73-a4a4-4277b98310b7.png" alt="img"/>
+<img width="750px" src="https://user-images.githubusercontent.com/56782318/141068414-dcbb2a01-8682-4cb7-94fb-4fdd1e288c41.png" alt="img"/>
 
 ## Installation
 
