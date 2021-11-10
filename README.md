@@ -1,9 +1,7 @@
 <div align="center"><img width="300px" src="https://user-images.githubusercontent.com/56782318/141062405-40791cfc-5d58-4485-b2ac-9e6478cf6479.png" alt="img"/></div>
 
 
-<div align="center"> Due to Covid-19, everything has shifted to virtual mode. Malls and shopping centres have remained closed for over a year. 
-
-**MallWise** aims to bring the mall experience online helping many shop owners run their business virtually. </div>
+<div align="center"> Due to Covid-19, everything has shifted to virtual mode. Malls and shopping centres have remained closed for over a year. **MallWise** aims to bring the mall experience online helping many shop owners run their business virtually. </div>
 
 ## Features
 
