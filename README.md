@@ -1,70 +1,72 @@
-# Getting Started with Create React App
+<div align="center"><img width="300px" src="https://user-images.githubusercontent.com/56782318/141062405-40791cfc-5d58-4485-b2ac-9e6478cf6479.png" alt="img"/></div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+<div align="center"> Due to Covid-19, everything has shifted to virtual mode. Malls and shopping centres have remained closed for over a year. 
 
-In the project directory, you can run:
+**MallWise** aims to bring the mall experience online helping many shop owners run their business virtually. </div>
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**Login View**
+  1.	Register user as customer / shop owner
+  2.	Login as customer / shop owner
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+**Shop Owner View**
+  1.	Register a shop in the mall
+  2.	Add items to inventory of shop
+  3.	Update items present in inventory of shop
+  4.	Delete items from inventory of shop
+  5.	Delete shop from mall
+  
+**Customer View**
+  1.	View all shops present in mall
+  2.	Visit a shop and view all products available in the shop
+  3.	Add products from various shops to cart
+  4.	Purchase items present in cart and checkout
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Tech Stack
 
-### `npm run build`
+<img width="650px" src="https://user-images.githubusercontent.com/56782318/141061778-417d4316-8e18-4560-a0c8-21874da01372.png" alt="img"/>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## ER Diagram
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<img width="650px" src="https://user-images.githubusercontent.com/56782318/141060844-545d0c1a-713a-4231-a145-e57b3b53a53b.png" alt="img"/>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Relational Schema Diagram
 
-### `npm run eject`
+<img width="650px" src="https://user-images.githubusercontent.com/56782318/141061006-352bac73-767e-42bc-b260-99639705743e.png" alt="img"/>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Screenshots
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<img width="750px" src="https://user-images.githubusercontent.com/56782318/141064767-7c70a146-e815-4354-bdbc-6b1de86d72f6.png" alt="img"/>
+<img width="750px" src="https://user-images.githubusercontent.com/56782318/141064818-026e9d49-1a78-43d2-874d-d66ae354ff0f.png" alt="img"/>
+<img width="750px" src="https://user-images.githubusercontent.com/56782318/141064884-6fc81b04-bd6e-4cf1-a554-229dd16fb4eb.png" alt="img"/>
+<img width="750px" src="https://user-images.githubusercontent.com/56782318/141064943-dd75207f-8dd0-4d46-b0e2-2c22dc0ad33f.png" alt="img"/>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Installation
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+1. Clone the repository
+```
+git clone https://github.com/shreyavaidya2311/MallWise.git
+```
 
-## Learn More
+2. Installing dependencies
+```
+npm i
+cd backend & npm i
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3. Run the frontend (http://localhost:3000/)
+```
+npm start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+4. Run the backend
+```
+cd backend
+npm run server
+```
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
