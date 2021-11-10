@@ -148,7 +148,7 @@ const Inventory = () => {
           </AppBar>
           <div
             style={{
-              marginTop: "3em",
+              marginTop: "5em",
             }}
           >
             <AddProduct
@@ -178,6 +178,7 @@ const Inventory = () => {
                 color="secondary"
                 startIcon={<Add />}
                 onClick={handleAddClick}
+                style={{ marginBottom: "1em" }}
               >
                 Add Product
               </Button>

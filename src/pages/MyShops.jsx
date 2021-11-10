@@ -114,7 +114,7 @@ const MyShops = (props) => {
                           <ul>
                             <li>
                               <Typography
-                                style={{ color: "white", fontSize: "1.5em" }}
+                                style={{ color: "white", fontSize: "1.25em" }}
                                 variant="overline"
                               >
                                 <i>
